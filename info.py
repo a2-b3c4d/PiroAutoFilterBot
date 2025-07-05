@@ -44,6 +44,12 @@ auth_channel = environ.get('AUTH_CHANNEL')
 auth_grp = environ.get('AUTH_GROUP')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
+# Multi Force Subscribe
+multi_auth_channels = environ.get("AUTH_CHANNELS", "")
+multi_channel_names = environ.get("CHANNEL_NAMES", "")
+
+AUTH_CHANNELS = [int(x) for x in multi_auth_channels.split("|") if x]
+CHANNEL_NAMES = multi_channel_names.split("|")
 # Load from environment variables
 support_chat_id = environ.get('SUPPORT_CHAT_ID')
 reqst_channel = environ.get('REQST_CHANNEL_ID')
