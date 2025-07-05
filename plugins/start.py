@@ -1,12 +1,22 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from plugins.fsub_control import load_fsub
-from pyrogram.errors import UserNotParticipant, ChatAdminRequired
-from asyncio import sleep
+from pyrogram.errors import UserNotParticipant
+from time import time
+
+# Prevent spam /start
+user_start_time = {}
 
 @Client.on_message(filters.command("start"))
 async def start_cmd(client, message: Message):
     user_id = message.from_user.id
+
+    # Anti-spam: Allow only 1 start every 2 seconds
+    if user_start_time.get(user_id) and time() - user_start_time[user_id] < 2:
+        return  # Ignore spamming
+
+    user_start_time[user_id] = time()  # Save last time
+
     fsub_data = load_fsub()
 
     if not fsub_data["channels"]:
@@ -26,7 +36,7 @@ async def start_cmd(client, message: Message):
                 title = chat.title
                 username = chat.username
                 invite_link = f"https://t.me/{username}" if username else chat.invite_link
-                buttons.append([InlineKeyboardButton(f"🔗 Join {title}", url=invite_link)])
+                buttons.append([InlineKeyboardButton(f"🔗 {title}", url=invite_link)])
                 not_joined.append(title)
             except Exception:
                 continue
@@ -56,6 +66,6 @@ async def refresh_callback(client, callback_query):
 
     if not_joined:
         return await callback_query.answer("❗ You haven't joined all required channels.", show_alert=True)
-    
+
     await callback_query.message.delete()
     await callback_query.message.reply("✅ Great! You've joined all channels. You can now use the bot.")
