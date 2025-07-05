@@ -53,11 +53,14 @@ class Bot(Client):
         now = datetime.now(tz)
         time = now.strftime("%H:%M:%S %p")
         try:
-            await self.get_chat(LOG_CHANNEL)  # This fetches and caches the chat
-            await self.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT.format(today, time))
-        except Exception as e:
-            print(f"❌ Failed to send log message: {e}")
-        await self.send_message(chat_id=SUPPORT_CHAT_ID, text=script.RESTART_GC_TXT.format(today, time))
+    await self.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT.format(today, time))
+except Exception as e:
+    print(f"❌ Failed to send LOG_CHANNEL message: {e}")
+
+try:
+    await self.send_message(chat_id=SUPPORT_CHAT_ID, text=script.RESTART_GC_TXT.format(today, time))
+except Exception as e:
+    print(f"❌ Failed to send SUPPORT_CHAT_ID message: {e}")
         app = web.AppRunner(await web_server())
         await app.setup()
         bind_address = "0.0.0.0"
