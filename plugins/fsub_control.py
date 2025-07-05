@@ -1,6 +1,7 @@
 import json
 from pyrogram import Client, filters
 from pyrogram.types import Message
+from pyrogram.errors import ChatAdminRequired, PeerIdInvalid
 from info import ADMINS
 
 FSUB_FILE = "fsub.json"
@@ -54,7 +55,13 @@ async def fsub_list(client, message: Message):
 
     text = "📌 **Current Force-Sub Channels:**\n\n"
     for ch in fsub_data["channels"]:
-        text += f"➤ `{ch}`\n"
+        try:
+            chat = await client.get_chat(ch)
+            title = chat.title
+            text += f"➤ {title} (`{ch}`)\n"
+        except (ChatAdminRequired, PeerIdInvalid):
+            text += f"➤ `{ch}` (❌ Cannot fetch name)\n"
+
     await message.reply(text)
 
 @Client.on_message(filters.command("forcesub") & filters.user(ADMINS))
@@ -62,8 +69,8 @@ async def fsub_help(client, message: Message):
     text = """
 🔐 **Force Subscribe Control Panel**
 
-**/add_fsub @channel** – Add a new fsub channel  
-**/del_fsub @channel** – Remove a channel from fsub  
-**/fsub_list** – View current force-sub channels  
+➕ `/add_fsub @channel` – Add a new fsub channel  
+➖ `/del_fsub @channel` – Remove a channel from fsub  
+📋 `/fsub_list` – View current force-sub channels  
 """
     await message.reply(text)
