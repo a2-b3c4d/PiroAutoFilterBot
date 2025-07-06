@@ -80,11 +80,13 @@ AUTO_DELETE = is_enabled((environ.get('AUTO_DELETE', "True")), True)
 SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "True")), True)
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", '📜 <b>F̲i̲l̲e̲ N̲a̲m̲e̲</b>: <b>{file_name}</b>✨ For more enchanted relics like this, travel to [AniHorizon](https://t.me/AniHorizon). I’ll be waiting...')
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", '')
-IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", ('📜 𝒯𝒾𝓉𝓁𝑒: <a href="{url}">『 {title} 』</a>  
-🕯️ 𝒴𝑒𝒶𝓇 𝒪𝒻 𝑅𝑒𝓁𝑒𝒶𝓈𝑒: <b>{year}</b>  
-🌠 𝑀𝒶𝑔𝒾𝒸𝒶𝓁 𝑅𝒶𝓉𝒾𝓃𝑔: <b>{rating} / 10</b>  
-🎭 𝒢𝑒𝓃𝓇𝑒𝓈 𝑬𝓷𝓬𝓱𝒶𝓃𝓉𝑒𝒹: <b>{genres}</b>  
-🔮 𝒢𝓊𝒾𝒹𝑒𝒹 𝐵𝓎 𝑀𝒶𝓃𝒶: <a href="https://t.me/TC_LinksZ">『 TC INDEX 』</a>')) 
+IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", (
+    '📜 𝒯𝒾𝓉𝓁𝑒: <a href="{url}">『 {title} 』</a>\n'
+    '🕯️ 𝒴𝑒𝒶𝓇 𝒪𝒻 𝑅𝑒𝓁𝑒𝒶𝓈𝑒: <b>{year}</b>\n'
+    '🌠 𝑀𝒶𝑔𝒾𝒸𝒶𝓁 𝑅𝒶𝓉𝒾𝓃𝑔: <b>{rating} / 10</b>\n'
+    '🎭 𝒢𝑒𝓃𝓇𝑒𝓈 𝑬𝓷𝓬𝓱𝒶𝓃𝓉𝑒𝒹: <b>{genres}</b>\n'
+    '🔮 𝒢𝓊𝒾𝒹𝑒𝒹 𝐵𝓎 𝑀𝒶𝓃𝒶: <a href="https://t.me/TC_LinksZ">『 TC INDEX 』</a>'
+)) 
 LONG_IMDB_DESCRIPTION = is_enabled(environ.get("LONG_IMDB_DESCRIPTION", "False"), False)
 SPELL_CHECK_REPLY = is_enabled(environ.get("SPELL_CHECK_REPLY", "True"), True)
 MAX_LIST_ELM = environ.get("MAX_LIST_ELM", None)
