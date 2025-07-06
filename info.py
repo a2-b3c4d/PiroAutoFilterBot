@@ -78,9 +78,13 @@ IMDB = is_enabled((environ.get('IMDB', "False")), True)
 AUTO_FFILTER = is_enabled((environ.get('AUTO_FFILTER', "True")), True)
 AUTO_DELETE = is_enabled((environ.get('AUTO_DELETE', "True")), True)
 SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "True")), True)
-CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", '📂 <b>File Name</b>: <code>{file_name}</code> \n\n❤️‍🔥 <b>Join</b> [𝗕𝗟𝗔𝗦𝗧𝗘𝗥 𝗟𝗜𝗡𝗞𝗭](https://t.me/blaster_linkz)')
+CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", '📜 <b>F̲i̲l̲e̲ N̲a̲m̲e̲</b>: <b>{file_name}</b>✨ For more enchanted relics like this, travel to [AniHorizon](https://t.me/AniHorizon). I’ll be waiting...')
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", '')
-IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", '🏷 𝖳𝗂𝗍𝗅𝖾: <a href={url}>{title}</a> \n🔮 𝖸𝖾𝖺𝗋: {year} \n⭐️ 𝖱𝖺𝗍𝗂𝗇𝗀𝗌: {rating}/ 10  \n🎭 𝖦𝖾𝗇𝖾𝗋𝗌: {genres} \n\n🎊 𝖯𝗈𝗐𝖾𝗋𝖾𝖽 𝖡𝗒 [[𝖯𝖨𝖱𝖮]](t.me/piroxbots)')
+IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", '📜 𝒯𝒾𝓉𝓁𝑒: <a href="{url}">『 {title} 』</a>  
+🕯️ 𝒴𝑒𝒶𝓇 𝒪𝒻 𝑅𝑒𝓁𝑒𝒶𝓈𝑒: <b>{year}</b>  
+🌠 𝑀𝒶𝑔𝒾𝒸𝒶𝓁 𝑅𝒶𝓉𝒾𝓃𝑔: <b>{rating} / 10</b>  
+🎭 𝒢𝑒𝓃𝓇𝑒𝓈 𝑬𝓷𝓬𝓱𝒶𝓃𝓉𝑒𝒹: <b>{genres}</b>  
+🔮 𝒢𝓊𝒾𝒹𝑒𝒹 𝐵𝓎 𝑀𝒶𝓃𝒶: <a href="https://t.me/TC_LinksZ">『 TC INDEX 』</a>')
 LONG_IMDB_DESCRIPTION = is_enabled(environ.get("LONG_IMDB_DESCRIPTION", "False"), False)
 SPELL_CHECK_REPLY = is_enabled(environ.get("SPELL_CHECK_REPLY", "True"), True)
 MAX_LIST_ELM = environ.get("MAX_LIST_ELM", None)
