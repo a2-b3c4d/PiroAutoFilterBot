@@ -78,9 +78,9 @@ IMDB = is_enabled((environ.get('IMDB', "False")), True)
 AUTO_FFILTER = is_enabled((environ.get('AUTO_FFILTER', "True")), True)
 AUTO_DELETE = is_enabled((environ.get('AUTO_DELETE', "True")), True)
 SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "True")), True)
-CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", ('📜 <b>F̲i̲l̲e̲ N̲a̲m̲e̲</b>: <b>{file_name}</b>✨ For more enchanted relics like this, travel to [AniHorizon](https://t.me/AniHorizon). I’ll be waiting...')
+CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", '📜 <b>F̲i̲l̲e̲ N̲a̲m̲e̲</b>: <b>{file_name}</b>✨ For more enchanted relics like this, travel to [AniHorizon](https://t.me/AniHorizon). I’ll be waiting...')
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", '')
-IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", '📜 𝒯𝒾𝓉𝓁𝑒: <a href="{url}">『 {title} 』</a>  
+IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", ('📜 𝒯𝒾𝓉𝓁𝑒: <a href="{url}">『 {title} 』</a>  
 🕯️ 𝒴𝑒𝒶𝓇 𝒪𝒻 𝑅𝑒𝓁𝑒𝒶𝓈𝑒: <b>{year}</b>  
 🌠 𝑀𝒶𝑔𝒾𝒸𝒶𝓁 𝑅𝒶𝓉𝒾𝓃𝑔: <b>{rating} / 10</b>  
 🎭 𝒢𝑒𝓃𝓇𝑒𝓈 𝑬𝓷𝓬𝓱𝒶𝓃𝓉𝑒𝒹: <b>{genres}</b>  
